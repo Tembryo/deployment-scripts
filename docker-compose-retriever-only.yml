@@ -1,0 +1,5 @@
+retrieve:
+  image: tembryo/wisdota-retrieve
+  volumes:
+    - /usr/local/dota-analysis/web-server/storage/retrieve:/storage
+    - /usr/local/dota-analysis/web-server/storage/shared:/shared
