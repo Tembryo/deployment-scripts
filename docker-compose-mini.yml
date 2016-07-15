@@ -13,3 +13,8 @@ analysis:
   volumes:
     - /usr/local/dota-analysis/web-server/storage/analysis:/storage
     - /usr/local/dota-analysis/web-server/storage/shared:/shared
+crawler:
+  image: tembryo/wisdota-crawl
+  volumes:
+    - /usr/local/dota-analysis/web-server/storage/crawl:/storage
+    - /usr/local/dota-analysis/web-server/storage/shared:/shared
