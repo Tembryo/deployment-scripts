@@ -1,0 +1,5 @@
+analysis:
+  image: tembryo/wisdota-analysis
+  volumes:
+    - /usr/local/dota-analysis/web-server/storage/analysis:/storage
+    - /usr/local/dota-analysis/web-server/storage/shared:/shared
