@@ -1,0 +1,48 @@
+postgres:
+  container_name: postgres-container
+  image: postgres
+  expose:
+    - "5432"
+  ports:
+    - "5432:5432"
+  environment:
+    POSTGRES_USER: "wisdota"
+    POSTGRES_PASSWORD: "whoop-whoop-devdb"
+    PGDATA: "/postgres/data"
+  volumes:
+    - /usr/local/Tembryo/storage/postgres:/postgres
+scheduler:
+  image: tembryo/wisdota-scheduler
+  volumes:
+    - /usr/local/Tembryo/storage/scheduler:/storage
+    - /usr/local/Tembryo/storage/shared:/shared
+  environment:
+    VERSION: "DEV"
+analysis:
+  image: tembryo/wisdota-analysis
+  volumes:
+    - /usr/local/Tembryo/storage/analysis:/storage
+    - /usr/local/Tembryo/storage/shared:/shared
+  environment:
+    VERSION: "DEV"
+retrieve:
+  image: tembryo/wisdota-retrieve
+  volumes:
+    - /usr/local/Tembryo/storage/retrieve:/storage
+    - /usr/local/Tembryo/storage/shared:/shared
+  environment:
+    VERSION: "DEV"
+download:
+  image: tembryo/wisdota-download
+  volumes:
+    - /usr/local/Tembryo/storage/download:/storage
+    - /usr/local/Tembryo/storage/shared:/shared
+  environment:
+    VERSION: "DEV"
+crawler:
+  image: tembryo/wisdota-crawl
+  volumes:
+    - /usr/local/Tembryo/storage/crawl:/storage
+    - /usr/local/Tembryo/storage/shared:/shared
+  environment:
+    VERSION: "DEV"
