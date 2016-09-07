@@ -47,12 +47,11 @@ crawler:
   environment:
     VERSION: "DEV"
 proxy:
-  image: jwilder/nginx-proxy
+  image: tembryo/wisdota-nginx
   ports:
     - "80:80"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
-    - /usr/local/dota-analysis/web-server/nginx/vhosts:/etc/nginx/vhost.d:ro
 webserver:
   image: tembryo/wisdota-webserver
   expose:
