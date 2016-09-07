@@ -46,3 +46,21 @@ crawler:
     - /usr/local/Tembryo/storage/shared:/shared
   environment:
     VERSION: "DEV"
+proxy:
+  image: jwilder/nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - /usr/local/dota-analysis/web-server/nginx/vhosts:/etc/nginx/vhost.d:ro
+webserver:
+  image: tembryo/wisdota-webserver
+  expose:
+    - "42000"
+  volumes:
+    - /usr/local/dota-analysis/web-server/storage/webserver:/storage
+    - /usr/local/dota-analysis/web-server/storage/shared:/shared
+  environment:
+    VERSION: "DEV"
+    VIRTUAL_HOST: "46.101.112.71"
+    VIRTUAL_PORT: "42000"
