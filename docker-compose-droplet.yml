@@ -1,11 +1,9 @@
 proxy:
-  container_name: droplet-proxy
-  image: jwilder/nginx-proxy
+  image: tembryo/wisdota-nginx
   ports:
     - "80:80"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
-    - /usr/local/dota-analysis/web-server/nginx/vhosts:/etc/nginx/vhost.d:ro
 postgres:
   container_name: postgres-container
   image: postgres
