@@ -1,4 +1,4 @@
-user-stats:
+create-steam-accounts:
   image: tembryo/wisdota-create-steam-accounts
   volumes:
     - /usr/local/dota-analysis/web-server/storage/shared:/shared
