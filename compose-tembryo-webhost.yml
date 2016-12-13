@@ -1,0 +1,24 @@
+proxy:
+  image: jwilder/nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+
+webserver:
+  image: tembryo/wisdota-webserver
+  expose:
+    - "42000"
+  environment:
+    VIRTUAL_HOST: "wisdota.com,www.wisdota.com"
+    VIRTUAL_PORT: "42000"
+    VERSION: "production"
+
+tembryo-website:
+  image: orchardup/nginx
+  expose:
+    - "80"
+  volumes:
+    - /usr/local/tembryo-website/src:/var/www
+  environment:
+    VIRTUAL_HOST: "tembryo.com,www.tembryo.com"
